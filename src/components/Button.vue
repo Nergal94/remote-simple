@@ -1,6 +1,7 @@
 <template>
   <div>
-    <button :class="$style.button" id="btn-remote" v-on:click="count+=2">
+    <p>{{ msg }}</p>
+    <button :class="$style.button" id="btn-remote" @click="addCount">
       <slot>remote-simple's Button: {{ count }}</slot>
     </button>
     <counter />
@@ -8,7 +9,7 @@
 </template>
 
 <script lang="ts">
-import {Vue, Component} from "vue-property-decorator";
+import {Vue, Component, Prop} from "vue-property-decorator";
 import Counter from './Counter.vue';
 
 @Component({
@@ -17,7 +18,15 @@ import Counter from './Counter.vue';
   }
 })
 export default class Button extends Vue {
+  @Prop({ required: true })
+  public msg!: string;
+
   public count: number = 0;
+
+  public addCount(): void {
+    this.count++;
+    this.$emit('increase', this.count);
+  }
 }
 </script>
 <style module>
