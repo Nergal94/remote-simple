@@ -1,0 +1,24 @@
+{
+  "name": "@vue2-demo/remote-simple",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite --port 5001 --strictPort",
+    "build": "vite build",
+    "serve": "vite preview --port 5001 --strictPort",
+    "test": "echo test $name",
+    "debug": "set DEBUG=vite:deps && vite build"
+  },
+  "devDependencies": {
+    "vite": "^4.0.3",
+    "@vitejs/plugin-vue2": "^2.2.0",
+    "@originjs/vite-plugin-federation": "^1.1.14"
+  },
+  "dependencies": {
+    "vue": "^2.7.14",
+    "vue-class-component": "^7.0.2",
+    "vue-property-decorator": "^8.1.0",
+    "typescript": "^4.9.3",
+    "vue-tsc": "^1.0.24"
+  }
+}
